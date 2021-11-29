@@ -1,4 +1,4 @@
-package groovyimportbug.broken.java.groovyimportbug;
+package groovyimportbug;
 
 import groovy.lang.GroovyShell;
 import org.codehaus.groovy.control.CompilerConfiguration;
