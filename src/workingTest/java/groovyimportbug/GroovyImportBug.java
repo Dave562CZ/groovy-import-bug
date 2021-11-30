@@ -17,7 +17,12 @@ public class GroovyImportBug {
         importCustomizer.addStaticStars(CustomPrintln.class.getName());
         configuration.addCompilationCustomizers(importCustomizer);
         GroovyShell shell = new GroovyShell(configuration);
-        shell.evaluate("println(\"test\")");
+        shell.evaluate("" +
+                "static void foo() {\n" +
+                "   println(\"test\")\n" +
+                "}\n" +
+                "foo()");
+        System.out.println(CustomPrintln.messages);
         Assertions.assertTrue(CustomPrintln.messages.contains("test"), "Messages does not contain \"test\" " + CustomPrintln.messages);
     }
 
